@@ -1,964 +1,571 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>VitalServe Initiative | Empowering Communities</title>
-
-    <meta name="description" content="VitalServe Initiative is a youth-led nonprofit organization focused on empowering communities through outreach, education, and meaningful service." />
-
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <style>
-
-        :root {
-            --primary: #13293d;
-            --secondary: #00a896;
-            --dark: #1e293b;
-            --light: #f8fafc;
-            --white: #ffffff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: var(--light);
-            color: var(--dark);
-            line-height: 1.7;
-        }
-
-        /* NAVBAR */
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 18px 20px;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            text-decoration: none;
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        .logo span {
-            color: var(--secondary);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 24px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary);
-        }
-
-        .donate-btn {
-            background: var(--secondary);
-            color: white !important;
-            padding: 10px 18px;
-            border-radius: 8px;
-        }
-
-        .donate-btn:hover {
-            background: #02867a;
-        }
-
-        /* HERO */
-
-        #home {
-            min-height: 100vh;
-
-            background:
-            linear-gradient(rgba(19,41,61,0.82), rgba(19,41,61,0.82)),
-            url('https://images.unsplash.com/photo-1469571486040-7a9b1373d77d?auto=format&fit=crop&w=1600&q=80');
-
-            background-size: cover;
-            background-position: center;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-
-            padding: 40px 20px;
-            color: white;
-        }
-
-        .hero-content {
-            max-width: 850px;
-        }
-
-        .hero-logo {
-            width: 150px;
-            height: 150px;
-            object-fit: contain;
-
-            border-radius: 50%;
-            padding: 12px;
-
-            background: rgba(255,255,255,0.12);
-
-            backdrop-filter: blur(10px);
-
-            margin-bottom: 30px;
-        }
-
-        #home h1 {
-            font-size: 72px;
-            font-weight: 800;
-            line-height: 1.05;
-            margin-bottom: 20px;
-            letter-spacing: -2px;
-        }
-
-        #home p {
-            font-size: 22px;
-            font-weight: 300;
-            max-width: 700px;
-            margin: auto;
-            margin-bottom: 35px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .cta-btn {
-            display: inline-block;
-            padding: 14px 30px;
-
-            border-radius: 10px;
-
-            text-decoration: none;
-            font-weight: 600;
-
-            transition: all 0.3s ease;
-        }
-
-        .primary-btn {
-            background: var(--secondary);
-            color: white;
-        }
-
-        .secondary-btn {
-            background: white;
-            color: var(--primary);
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-3px) scale(1.03);
-        }
-
-        /* GENERAL */
-
-        section {
-            padding: 90px 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 40px;
-            color: var(--primary);
-            margin-bottom: 55px;
-            font-weight: 700;
-        }
-
-        /* ABOUT */
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .about-grid img {
-            width: 100%;
-            border-radius: 18px;
-        }
-
-        /* TEAM */
-
-        .team-section {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 70px;
-            flex-wrap: wrap;
-        }
-
-        .about-member {
-            background: white;
-            width: 260px;
-
-            padding: 30px;
-
-            border-radius: 18px;
-
-            text-align: center;
-
-            box-shadow: 0 4px 18px rgba(0,0,0,0.06);
-
-            transition: all 0.3s ease;
-        }
-
-        .about-member:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
-        }
-
-        .member-placeholder {
-            width: 120px;
-            height: 120px;
-
-            border-radius: 50%;
-            background: #cbd5e1;
-
-            margin: 0 auto 20px;
-        }
-
-        .about-member h3 {
-            color: var(--primary);
-            margin-bottom: 8px;
-        }
-
-        .about-member p {
-            color: var(--secondary);
-            font-weight: 500;
-        }
-
-        /* MISSION */
-
-        #mission {
-            background: #eef4f7;
-        }
-
-        .mission-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 35px;
-        }
-
-        .mission-box {
-            background: white;
-            padding: 35px;
-
-            border-radius: 18px;
-
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-
-            transition: all 0.3s ease;
-        }
-
-        .mission-box:hover {
-            transform: scale(1.03);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-        }
-
-        .mission-box h3 {
-            color: var(--primary);
-            margin-bottom: 12px;
-        }
-
-        /* PROGRAMS */
-
-        .program-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-            gap: 25px;
-        }
-
-        .program-card {
-            background: white;
-            padding: 35px;
-
-            border-radius: 18px;
-
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-
-            transition: all 0.3s ease;
-        }
-
-        .program-card:hover {
-            transform: scale(1.04);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
-        }
-
-        .program-card h3 {
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-
-        /* IMPACT */
-
-        #impact {
-            background: white;
-        }
-
-        .impact-grid {
-            display: flex;
-            justify-content: center;
-            gap: 70px;
-            text-align: center;
-            flex-wrap: wrap;
-        }
-
-        .impact-grid h3 {
-            font-size: 52px;
-            color: var(--secondary);
-        }
-
-        .impact-grid p {
-            font-weight: 500;
-        }
-
-        /* JOIN US */
-
-        .join-box {
-            background: white;
-
-            max-width: 850px;
-            margin: auto;
-
-            text-align: center;
-
-            padding: 50px;
-
-            border-radius: 18px;
-
-            box-shadow: 0 4px 18px rgba(0,0,0,0.06);
-
-            transition: all 0.3s ease;
-        }
-
-        .join-box:hover {
-            transform: scale(1.02);
-        }
-
-        /* DONATE */
-
-        #donate {
-            background: white;
-        }
-
-        .donate-container {
-            max-width: 850px;
-            margin: auto;
-
-            text-align: center;
-        }
-
-        .donate-tiers {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-
-            margin-top: 35px;
-        }
-
-        .tier {
-            width: 160px;
-
-            padding: 25px;
-
-            border-radius: 15px;
-
-            background: white;
-
-            border: 2px solid #dbe4ea;
-
-            font-size: 24px;
-            font-weight: 700;
-
-            transition: all 0.3s ease;
-
-            cursor: pointer;
-        }
-
-        .tier:hover {
-            transform: scale(1.08);
-            border-color: var(--secondary);
-            color: var(--secondary);
-        }
-
-        /* CONTACT */
-
-        .contact-container {
-            max-width: 700px;
-            margin: auto;
-
-            background: white;
-
-            padding: 45px;
-
-            border-radius: 18px;
-
-            box-shadow: 0 4px 18px rgba(0,0,0,0.06);
-
-            transition: all 0.3s ease;
-        }
-
-        .contact-container:hover {
-            transform: scale(1.02);
-        }
-
-        .form-group {
-            margin-bottom: 22px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-
-            width: 100%;
-            padding: 14px;
-
-            border-radius: 10px;
-            border: 1px solid #d5dde5;
-
-            font-size: 16px;
-        }
-
-        .submit-btn {
-            width: 100%;
-
-            border: none;
-
-            background: var(--primary);
-            color: white;
-
-            padding: 15px;
-
-            border-radius: 10px;
-
-            font-size: 16px;
-            font-weight: 600;
-
-            cursor: pointer;
-
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            background: #0d2030;
-        }
-
-        /* FOOTER */
-
-        footer {
-            background: var(--primary);
-            color: white;
-
-            text-align: center;
-
-            padding: 45px 20px;
-        }
-
-        /* MOBILE */
-
-        @media(max-width: 900px) {
-
-            .about-grid,
-            .mission-grid {
-                grid-template-columns: 1fr;
-            }
-
-            #home h1 {
-                font-size: 48px;
-            }
-
-            #home p {
-                font-size: 18px;
-            }
-
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VitalServe Initiative</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --primary: #0f2d4a;
+    --secondary: #38bdf8;
+    --dark: #1e293b;
+    --light: #f8fafc;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--light);
+    color: var(--dark);
+    line-height: 1.7;
+}
+
+/* NAVBAR */
+header {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    text-decoration: none;
+    color: var(--primary);
+}
+
+.logo span {
+    color: var(--secondary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 18px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--secondary);
+}
+
+.donate-btn {
+    background: var(--secondary);
+    color: white !important;
+    padding: 10px 14px;
+    border-radius: 12px;
+}
+
+/* HERO */
+#home {
+    min-height: 100vh;
+    background:
+    linear-gradient(rgba(15,45,74,0.85), rgba(15,45,74,0.85)),
+    url('https://images.unsplash.com/photo-1469571486040-7a9b1373d77d?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 40px;
+}
+
+.hero-logo {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+#home h1 {
+    font-size: 70px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+#home p {
+    font-size: 20px;
+    font-weight: 300;
+    max-width: 700px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    padding: 14px 26px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+    display: inline-block;
+}
+
+.cta-btn:hover {
+    transform: scale(1.05);
+}
+
+.primary {
+    background: var(--secondary);
+    color: white;
+}
+
+.secondary {
+    background: white;
+    color: var(--primary);
+}
+
+/* SECTIONS */
+section {
+    padding: 90px 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 50px;
+    color: var(--primary);
+}
+
+/* GLOBAL HOVER */
+.program-card,
+.mission-box,
+.about-member,
+.tier,
+.contact-container,
+.join-box {
+    transition: 0.3s ease;
+    border-radius: 24px;
+}
+
+.program-card:hover,
+.mission-box:hover,
+.about-member:hover,
+.tier:hover,
+.contact-container:hover,
+.join-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+/* ABOUT */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.about-grid img {
+    width: 100%;
+    border-radius: 24px;
+}
+
+/* TEAM */
+.team-section {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+
+.about-member {
+    width: 250px;
+    background: white;
+    padding: 25px;
+    text-align: center;
+    border-radius: 24px;
+}
+
+.member-placeholder {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: #cbd5e1;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+/* CENTER FOUNDER */
+.founder {
+    border: 2px solid var(--secondary);
+    transform: scale(1.08);
+}
+
+/* MISSION */
+.mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.mission-box {
+    background: white;
+    padding: 30px;
+}
+
+/* PROGRAMS */
+.program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 25px;
+}
+
+.program-card {
+    background: white;
+    padding: 30px;
+}
+
+/* IMPACT */
+.impact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.impact-grid h3 {
+    font-size: 50px;
+    color: var(--secondary);
+}
+
+/* JOIN */
+.join-box {
+    background: white;
+    padding: 40px;
+    text-align: center;
+}
+
+/* DONATE */
+.donate-tiers {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.tier {
+    background: white;
+    padding: 25px;
+    width: 150px;
+    text-align: center;
+    font-size: 22px;
+    border: 2px solid #dbeafe;
+}
+
+/* CONTACT */
+.contact-container {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 12px;
+}
+
+/* FOOTER */
+footer {
+    background: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 40px;
+}
+
+/* MOBILE */
+@media(max-width: 900px) {
+
+    .about-grid,
+    .mission-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #home h1 {
+        font-size: 45px;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
+<header>
+<div class="nav-container">
+<a href="#home" class="logo">VitalServe<span>.</span></a>
 
-    <header>
-        <div class="nav-container">
+<ul class="nav-links">
+<li><a href="#about">About</a></li>
+<li><a href="#mission">Mission</a></li>
+<li><a href="#programs">Programs</a></li>
+<li><a href="#join">Join</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a class="donate-btn" href="#donate">Donate</a></li>
+</ul>
+</div>
+</header>
 
-            <a href="#home" class="logo">
-                VitalServe<span>.</span>
-            </a>
+<section id="home">
 
-            <nav>
-                <ul class="nav-links">
+<div>
 
-                    <li><a href="#home">Home</a></li>
+<img class="hero-logo" src="images/logo.png">
 
-                    <li><a href="#about">About</a></li>
+<h1>VitalServe Initiative</h1>
 
-                    <li><a href="#mission">Mission</a></li>
+<p>Empowering communities through service, leadership, and compassion.</p>
 
-                    <li><a href="#programs">Programs</a></li>
+<a class="cta-btn primary" href="#donate">Support Us</a>
 
-                    <li><a href="#join-us">Join Us</a></li>
+<a class="cta-btn secondary"
+href="https://docs.google.com/forms/d/e/1FAIpQLSf9cpICxF_rFuPOWEh1sRYSPCjtqJ6y4XTLbPOpz5Z3yUpJSg/viewform"
+target="_blank">
+Join Us
+</a>
 
-                    <li><a href="#contact">Contact</a></li>
+</div>
 
-                    <li>
-                        <a href="#donate" class="donate-btn">
-                            Donate
-                        </a>
-                    </li>
+</section>
 
-                </ul>
-            </nav>
+<section id="about">
 
-        </div>
-    </header>
+<div class="container">
 
-    <!-- HOME -->
+<h2 class="section-title">About Us</h2>
 
-    <section id="home">
+<div class="about-grid">
 
-        <div class="hero-content">
+<div>
+<p>
+VitalServe Initiative is a youth-led nonprofit focused on community impact through service and outreach.
+</p>
+</div>
 
-            <!-- Replace this with your actual logo later -->
-            <img
-                src="images/logo.png"
-                alt="VitalServe Logo"
-                class="hero-logo"
-            >
+<div>
+<img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80">
+</div>
 
-            <h1>VitalServe Initiative</h1>
+</div>
 
-            <p>
-                Empowering communities through outreach, education,
-                compassion, and meaningful service-driven leadership.
-            </p>
+<div class="team-section">
 
-            <div class="hero-buttons">
+<div class="about-member">
+<div class="member-placeholder"></div>
+<h3>Vedswaroop Yadanaparthi</h3>
+<p>Co-Founder</p>
+</div>
 
-                <a href="#donate" class="cta-btn primary-btn">
-                    Support Our Cause
-                </a>
+<div class="about-member founder">
+<div class="member-placeholder"></div>
+<h3>Ayman Mohammed</h3>
+<p>Founder</p>
+</div>
 
-                <a
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSf9cpICxF_rFuPOWEh1sRYSPCjtqJ6y4XTLbPOpz5Z3yUpJSg/viewform"
-                    target="_blank"
-                    class="cta-btn secondary-btn"
-                >
-                    Join Us
-                </a>
+<div class="about-member">
+<div class="member-placeholder"></div>
+<h3>Krish Koukuntla</h3>
+<p>Co-Founder</p>
+</div>
 
-            </div>
+</div>
 
-        </div>
+</div>
 
-    </section>
+</section>
 
-    <!-- ABOUT -->
+<section id="mission">
 
-    <section id="about">
+<div class="container">
 
-        <div class="container">
+<h2 class="section-title">Mission & Vision</h2>
 
-            <h2 class="section-title">About Us</h2>
+<div class="mission-grid">
 
-            <div class="about-grid">
+<div class="mission-box">
+<h3>Mission</h3>
+<p>Serve communities through outreach and support.</p>
+</div>
 
-                <div>
+<div class="mission-box">
+<h3>Vision</h3>
+<p>Create equal opportunity for all.</p>
+</div>
 
-                    <p>
-                        VitalServe Initiative is a youth-led nonprofit organization
-                        committed to empowering communities through outreach,
-                        education, healthcare awareness, and meaningful service.
-                    </p>
+</div>
 
-                    <br>
+</div>
 
-                    <p>
-                        Our mission is to create sustainable impact through
-                        compassion, leadership, and collective action.
-                        We believe every community deserves access to the
-                        resources and opportunities necessary to thrive.
-                    </p>
+</section>
 
-                </div>
+<section id="programs">
 
-                <div>
+<div class="container">
 
-                    <img
-                        src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=800&q=80"
-                        alt="Community Outreach"
-                    >
+<h2 class="section-title">What We Do</h2>
 
-                </div>
+<div class="program-grid">
 
-            </div>
+<div class="program-card">
+<h3>Community Outreach</h3>
+<p>Helping families in need.</p>
+</div>
 
-            <!-- TEAM -->
+<div class="program-card">
+<h3>Health Awareness</h3>
+<p>Promoting wellness education.</p>
+</div>
 
-            <div class="team-section">
+</div>
 
-                <div class="about-member">
+</div>
 
-                    <div class="member-placeholder"></div>
+</section>
 
-                    <h3>Ayman Mohammed</h3>
+<section id="impact">
 
-                    <p>Founder</p>
+<div class="container">
 
-                </div>
+<h2 class="section-title">Our Impact</h2>
 
-                <div class="about-member">
+<div class="impact-grid">
 
-                    <div class="member-placeholder"></div>
+<div>
+<h3>500+</h3>
+<p>Families Supported</p>
+</div>
 
-                    <h3>Vedswaroop Yadanaparthi</h3>
+<div>
+<h3>120+</h3>
+<p>Volunteers Engaged</p>
+</div>
 
-                    <p>Co-Founder</p>
+</div>
 
-                </div>
+</div>
 
-                <div class="about-member">
+</section>
 
-                    <div class="member-placeholder"></div>
+<section id="join">
 
-                    <h3>Krish Koukuntla</h3>
+<div class="container">
 
-                    <p>Co-Founder</p>
+<h2 class="section-title">Join Us</h2>
 
-                </div>
+<div class="join-box">
 
-            </div>
+<p>Become part of our mission today.</p>
 
-        </div>
+<a class="cta-btn primary"
+href="https://docs.google.com/forms/d/e/1FAIpQLSf9cpICxF_rFuPOWEh1sRYSPCjtqJ6y4XTLbPOpz5Z3yUpJSg/viewform"
+target="_blank">
+Apply Now
+</a>
 
-    </section>
+</div>
 
-    <!-- MISSION -->
+</div>
 
-    <section id="mission">
+</section>
 
-        <div class="container">
+<section id="donate">
 
-            <h2 class="section-title">Our Mission & Vision</h2>
+<div class="container">
 
-            <div class="mission-grid">
+<h2 class="section-title">Donate</h2>
 
-                <div class="mission-box">
+<div class="donate-tiers">
 
-                    <h3>Our Mission</h3>
+<div class="tier">$25</div>
+<div class="tier">$50</div>
+<div class="tier">$100</div>
+<div class="tier">Custom</div>
 
-                    <p>
-                        To uplift underserved communities by providing
-                        access to education, outreach programs,
-                        healthcare awareness, and essential support systems.
-                    </p>
+</div>
 
-                </div>
+</div>
 
-                <div class="mission-box">
+</section>
 
-                    <h3>Our Vision</h3>
+<section id="contact">
 
-                    <p>
-                        A world where every individual has equal access
-                        to opportunities, support, and the resources needed
-                        to build a thriving future.
-                    </p>
+<div class="container">
 
-                </div>
+<h2 class="section-title">Contact</h2>
 
-            </div>
+<div class="contact-container">
 
-        </div>
+<input placeholder="Name">
+<input placeholder="Email">
+<textarea placeholder="Message"></textarea>
 
-    </section>
+<button>Send</button>
 
-    <!-- PROGRAMS -->
+</div>
 
-    <section id="programs">
+</div>
 
-        <div class="container">
+</section>
 
-            <h2 class="section-title">What We Do</h2>
-
-            <div class="program-grid">
-
-                <div class="program-card">
-
-                    <h3>Community Outreach</h3>
-
-                    <p>
-                        Connecting underserved families with critical
-                        support systems and essential resources.
-                    </p>
-
-                </div>
-
-                <div class="program-card">
-
-                    <h3>Education Support</h3>
-
-                    <p>
-                        Providing educational tools, mentorship,
-                        and opportunities for youth development.
-                    </p>
-
-                </div>
-
-                <div class="program-card">
-
-                    <h3>Health Awareness</h3>
-
-                    <p>
-                        Promoting wellness initiatives and accessible
-                        healthcare education within local communities.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- IMPACT -->
-
-    <section id="impact">
-
-        <div class="container">
-
-            <h2 class="section-title">Our Impact</h2>
-
-            <div class="impact-grid">
-
-                <div>
-                    <h3>500+</h3>
-                    <p>Families Supported</p>
-                </div>
-
-                <div>
-                    <h3>120+</h3>
-                    <p>Volunteers Engaged</p>
-                </div>
-
-                <div>
-                    <h3>15</h3>
-                    <p>Community Programs</p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- JOIN US -->
-
-    <section id="join-us">
-
-        <div class="container">
-
-            <h2 class="section-title">Join Our Movement</h2>
-
-            <div class="join-box">
-
-                <p style="font-size:18px; margin-bottom:30px;">
-
-                    Become a volunteer, supporter, or advocate
-                    with VitalServe Initiative and help us create
-                    meaningful impact within communities.
-
-                </p>
-
-                <a
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSf9cpICxF_rFuPOWEh1sRYSPCjtqJ6y4XTLbPOpz5Z3yUpJSg/viewform"
-                    target="_blank"
-                    class="cta-btn primary-btn"
-                >
-                    Apply to Join
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- DONATE -->
-
-    <section id="donate">
-
-        <div class="container donate-container">
-
-            <h2 class="section-title">Make a Difference</h2>
-
-            <p>
-                Every contribution helps us continue our mission
-                of empowering communities and supporting those in need.
-            </p>
-
-            <div class="donate-tiers">
-
-                <div class="tier">$25</div>
-
-                <div class="tier">$50</div>
-
-                <div class="tier">$100</div>
-
-                <div class="tier">Custom</div>
-
-            </div>
-
-            <p style="margin-top:25px; font-size:14px; color:#64748b;">
-
-                Donation integration with PayPal or Stripe can be added later.
-
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- CONTACT -->
-
-    <section id="contact">
-
-        <div class="container">
-
-            <h2 class="section-title">Contact Us</h2>
-
-            <div class="contact-container">
-
-                <form
-                    onsubmit="alert('Thank you for reaching out!'); return false;"
-                >
-
-                    <div class="form-group">
-
-                        <label>Full Name</label>
-
-                        <input
-                            type="text"
-                            placeholder="John Doe"
-                            required
-                        >
-
-                    </div>
-
-                    <div class="form-group">
-
-                        <label>Email Address</label>
-
-                        <input
-                            type="email"
-                            placeholder="john@example.com"
-                            required
-                        >
-
-                    </div>
-
-                    <div class="form-group">
-
-                        <label>Your Message</label>
-
-                        <textarea
-                            rows="5"
-                            placeholder="How would you like to get involved?"
-                            required
-                        ></textarea>
-
-                    </div>
-
-                    <button class="submit-btn">
-                        Send Message
-                    </button>
-
-                </form>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <p>
-            © 2026 VitalServe Initiative. All Rights Reserved.
-        </p>
-
-        <p style="margin-top:10px; opacity:0.75; font-size:14px;">
-            Empowering communities through compassionate action.
-        </p>
-
-    </footer>
+<footer>
+<p>© 2026 VitalServe Initiative</p>
+</footer>
 
 </body>
 </html>
